@@ -1,0 +1,8 @@
+include DESCRIPTION.rst
+
+# Include the test suite (FIXME: does not work yet)
+# recursive-include tests *
+
+# Explicitly note anything that is in package_data, as Python 2.6 does
+# not include these by default
+# include sample/*.dat
