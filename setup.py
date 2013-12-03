@@ -9,9 +9,17 @@ setup(
     version=sample.__version__,
     description="A sample Python project",
     long_description=long_description,
+
+    # The project URL.
+    url='http://github.com/pfmoore/sampleproject',
+
+    # Author details
     author='Paul Moore',
     author_email='p.f.moore@gmail.com',
+
+    # Choose your license
     license='MIT',
+
     classifiers=[
         # How mature is this project? Common values are
         #   3 - Alpha
@@ -23,7 +31,7 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
 
-        # Pick your license as you wish
+        # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: MIT License',
 
         # Specify the Python versions you support here. In particular, ensure
