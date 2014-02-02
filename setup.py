@@ -24,7 +24,7 @@ def find_version(*file_paths):
 
 
 # Get the long description from the relevant file
-with open('DESCRIPTION.rst', encoding='utf-8') as f:
+with codecs.open('DESCRIPTION.rst', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
@@ -85,6 +85,7 @@ setup(
     package_data={
         'sample': ['package_data.dat'],
     },
+    test_suite = 'sample.tests',
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
