@@ -72,7 +72,7 @@ setup(
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages.
-    packages=find_packages(exclude=["contrib", "docs", "tests*"]),
+    packages=find_packages(),
     # If there are data files included in your packages, specify them here.
     package_data={
         # 'sample': ['*.dat'],
@@ -84,7 +84,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'sample=sample:main',
+            'sample=sample.sample:main',
         ],
     },
 )
