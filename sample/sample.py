@@ -20,10 +20,11 @@ I'm {computer}.
 Nice to serve U."""
         return template.format(greets=self.name, computer=" ".join(uname()))
 
+
 def main():
     """Entry point for the application script"""
-    SAMPLE = Sample(" ".join(argv[1:]))
-    print(SAMPLE.hello())
+    sample = Sample(" ".join(argv[1:]))
+    print(sample.hello())
 
 if __name__ == "__main__":
     main()

@@ -93,6 +93,8 @@ setup(
     entry_points={
         'console_scripts': [
             'sample=sample.sample:main',
+            'check_lint=tests.helpers:run_check_lint',
+            'check_pep8=tests.helpers:run_check_pep8',
         ],
     },
 )
