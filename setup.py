@@ -73,9 +73,12 @@ setup(
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages.
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
-    # If there are data files included in your packages, specify them here.
+
+    # If there are data files included in your packages, specify them here.  If
+    # using Python 2.6 or less, then these have to be included in MANIFEST.in as
+    # well.
     package_data={
-        # 'sample': ['*.dat'],
+        'sample': ['package_data.dat'],
     },
 
     # To provide executable scripts, use entry points in preference to the
