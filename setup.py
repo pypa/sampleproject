@@ -74,9 +74,13 @@ setup(
     # simple. Or you can use find_packages.
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
 
-    # If there are data files included in your packages, specify them here.  If
-    # using Python 2.6 or less, then these have to be included in MANIFEST.in as
-    # well.
+    # List run-time dependencies here.  These will be installed by pip when your
+    # project is installed.
+    install_requires = ['SomeDependency']
+
+    # If there are data files included in your packages that need to be
+    # installed, specify them here.  If using Python 2.6 or less, then these
+    # have to be included in MANIFEST.in as well.
     package_data={
         'sample': ['package_data.dat'],
     },
