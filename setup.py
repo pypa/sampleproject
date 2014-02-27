@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+import codecs
 import os
 import re
 
@@ -23,7 +24,7 @@ def find_version(*file_paths):
 
 
 # Get the long description from the relevant file
-with open('DESCRIPTION.rst', encoding='utf-8') as f:
+with codecs.open('DESCRIPTION.rst', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
@@ -76,7 +77,7 @@ setup(
 
     # List run-time dependencies here.  These will be installed by pip when your
     # project is installed.
-    install_requires = ['SomeDependency'],
+    install_requires = [],
 
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
@@ -84,13 +85,16 @@ setup(
     package_data={
         'sample': ['package_data.dat'],
     },
+    test_suite = 'sample.tests',
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'sample=sample:main',
+            'sample=sample.sample:main',
+            'check_lint=tests.helpers:run_check_lint',
+            'check_pep8=tests.helpers:run_check_pep8',
         ],
     },
 )
