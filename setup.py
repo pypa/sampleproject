@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+import codecs
 import os
 import re
 
@@ -23,7 +24,7 @@ def find_version(*file_paths):
 
 
 # Get the long description from the relevant file
-with open('DESCRIPTION.rst', encoding='utf-8') as f:
+with codecs.open('DESCRIPTION.rst', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
