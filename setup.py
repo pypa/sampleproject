@@ -34,11 +34,11 @@ setup(
     long_description=long_description,
 
     # The project URL.
-    url='http://github.com/pfmoore/sampleproject',
+    url='https://github.com/pypa/sampleproject',
 
     # Author details
-    author='Paul Moore',
-    author_email='p.f.moore@gmail.com',
+    author='The Python Packaging Authority',
+    author_email='pypa-dev@googlegroups.com',
 
     # Choose your license
     license='MIT',
