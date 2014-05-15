@@ -3,25 +3,9 @@ import codecs
 import os
 import re
 
+import sample
+
 here = os.path.abspath(os.path.dirname(__file__))
-
-# Read the version number from a source file.
-# Why read it, and not import?
-# see https://groups.google.com/d/topic/pypa-dev/0PkjVpcxTzQ/discussion
-def find_version(*file_paths):
-    # Open in Latin-1 so that we avoid encoding errors.
-    # Use codecs.open for Python 2 compatibility
-    with codecs.open(os.path.join(here, *file_paths), 'r', 'latin1') as f:
-        version_file = f.read()
-
-    # The version line must have the form
-    # __version__ = 'ver'
-    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                              version_file, re.M)
-    if version_match:
-        return version_match.group(1)
-    raise RuntimeError("Unable to find version string.")
-
 
 # Get the long description from the relevant file
 with codecs.open('DESCRIPTION.rst', encoding='utf-8') as f:
@@ -29,7 +13,11 @@ with codecs.open('DESCRIPTION.rst', encoding='utf-8') as f:
 
 setup(
     name="sample",
-    version=find_version('sample', '__init__.py'),
+
+    # There are various approaches to referencing the version. For a discussion,
+    # see http://packaging.python.org/en/latest/tutorial.html#version
+    version=sample.__version__,
+
     description="A sample Python project",
     long_description=long_description,
 
