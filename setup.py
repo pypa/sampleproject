@@ -8,7 +8,7 @@ import sample
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the relevant file
-with codecs.open('DESCRIPTION.rst', encoding='utf-8') as f:
+with codecs.open(os.path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
