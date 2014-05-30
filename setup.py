@@ -63,7 +63,9 @@ setup(
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
 
     # List run-time dependencies here.  These will be installed by pip when your
-    # project is installed.
+    # project is installed. For an analysis of "install_requires" vs pip's
+    # requirements files see:
+    # https://packaging.python.org/en/latest/technical.html#install-requires-vs-requirements-files
     install_requires = ['peppercorn'],
 
     # If there are data files included in your packages that need to be
