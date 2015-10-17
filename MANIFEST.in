@@ -1,8 +1,16 @@
+# project root files to add to sdist (these won't be installed)
 include README.rst
+include tox.ini
+include .travis.yml
 
-# Include the test suite (FIXME: does not work yet)
-# recursive-include tests *
+
+# this is needed if you want the tests included in the sdist.  We excluded
+# `tests` in the find_packages call in setup.py so that tests would not be installed.
+recursive-include tests *.py
+
+# Include the data files
+recursive-include data *
 
 # If using Python 2.6 or less, then have to include package data, even though
 # it's already declared in setup.py
-include sample/*.dat
+# include sample/*.dat
