@@ -1,12 +1,3 @@
-# project root files to add to sdist (these won't be installed)
-include README.rst
-include tox.ini
-include .travis.yml
-
-
-# this is needed if you want the tests included in the sdist.  We excluded
-# `tests` in the find_packages call in setup.py so that tests would not be installed.
-recursive-include tests *.py
 
 # Include the data files
 recursive-include data *
