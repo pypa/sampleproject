@@ -12,3 +12,6 @@ env:
 install: pip install tox
 
 script: tox
+
+notifications:
+  email: false
