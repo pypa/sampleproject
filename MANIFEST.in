@@ -1,3 +1,6 @@
+# Include the README.rst file, as setup.py needs it to work
+include README.rst
+
 # Include the license file
 include LICENSE.txt
 
