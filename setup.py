@@ -35,7 +35,7 @@ setup(
     author='The Python Packaging Authority',
     author_email='pypa-dev@googlegroups.com',
 
-    # Choose your license
+    # Choose your license : https://spdx.org/licenses/
     license='MIT',
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
