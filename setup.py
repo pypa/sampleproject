@@ -1,8 +1,8 @@
-"""A setuptools based setup module.
-
-See:
-https://packaging.python.org/en/latest/distributing.html
-https://github.com/pypa/sampleproject
+# coding: utf-8
+"""
+Setup.py содержит в себе ключевую информацию для сборки проекта, подробнее о составе полей и требованиях к их подготовке можно
+прочитать в https://github.com/HimkiDevCom/templateproject/blob/master/README.md
+Либо используйте официальную документацию: https://packaging.python.org/, https://packaging.python.org/distributing/
 """
 
 # Always prefer setuptools over distutils
@@ -14,7 +14,7 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
@@ -29,14 +29,14 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/pypa/sampleproject',
+    url='https://github.com/HimkiDevCom/templateproject',
 
     # Author details
-    author='The Python Packaging Authority',
-    author_email='pypa-dev@googlegroups.com',
+    author='HimkiDevCom&contributors',
+    author_email='',
 
     # Choose your license
-    license='MIT',
+    license='GNU LGPL v3',
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[

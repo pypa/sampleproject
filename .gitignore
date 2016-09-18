@@ -11,3 +11,6 @@ __pycache__/
 # due to using tox and pytest
 .tox
 .cache
+
+# PyCharm
+.idea
