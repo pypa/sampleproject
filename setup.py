@@ -108,9 +108,12 @@ setup(
     # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
     #
-    # Alternatively, if you just want to distribute a single Python file,
-    # uncomment this, which will expect a file called `my_module.py` to exist:
+    # Alternatively, if you just want to distribute a single Python file, use
+    # the `py_modules` argument instead as follows, which will expect a file
+    # called `my_module.py` to exist:
+    #
     #   py_modules=["my_module"],
+    #
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
 
     # This field lists other packages that your project depends on to run.
@@ -137,7 +140,7 @@ setup(
     # If there are data files included in your packages that need to be
     # installed, specify them here.
     #
-    # If using Python 2.6 or less, then these have to be included in
+    # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
     package_data={  # Optional
         'sample': ['package_data.dat'],
