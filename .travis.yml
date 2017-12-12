@@ -3,9 +3,12 @@
 
 language: python
 
-env:
-  - TOXENV=py27
-  - TOXENV=py34
+matrix:
+  include:
+    - python: 2.7
+      env: TOXENV=py27
+    - python: 3.4
+      env: TOXENV=py34
 
 install: pip install tox
 
