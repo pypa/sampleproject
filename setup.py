@@ -17,29 +17,65 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
+# Arguments marked as "Required" below must be included for upload to PyPI.
+# Fields marked as "Optional" may be commented out.
+
 setup(
-    name='sample',
+    # This is the name of your project. The first time you publish this
+    # package, this name will be registered for you. It will determine how
+    # users can install this project, e.g.:
+    #
+    # $ pip install sampleproject
+    #
+    # And where it will live on PyPI: https://pypi.org/project/sampleproject/
+    #
+    # There are some restrictions on what makes a valid project name
+    # specification here:
+    # https://packaging.python.org/specifications/core-metadata/#name
+    name='sampleproject',  # Required
 
-    # Versions should comply with PEP440.  For a discussion on single-sourcing
-    # the version across setup.py and the project code, see
+    # Versions should comply with PEP 440:
+    # https://www.python.org/dev/peps/pep-0440/
+    #
+    # For a discussion on single-sourcing the version across setup.py and the
+    # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.2.0',
+    version='1.2.0',  # Required
 
-    description='A sample Python project',
-    long_description=long_description,
+    # This is a one-line description or tagline of what your project does. This
+    # corresponds to the "Summary" metadata field:
+    # https://packaging.python.org/specifications/core-metadata/#summary
+    description='A sample Python project',  # Required
 
-    # The project's main homepage.
-    url='https://github.com/pypa/sampleproject',
+    # This is an optional longer description of your project that represents
+    # the body of text which users will see when they visit PyPI.
+    #
+    # Often, this is the same as your README, so you can just read it in from
+    # that file directly (as we have already done above)
+    #
+    # This field corresponds to the "Description" metadata field:
+    # https://packaging.python.org/specifications/core-metadata/#description-optional
+    long_description=long_description,  # Optional
 
-    # Author details
-    author='The Python Packaging Authority',
-    author_email='pypa-dev@googlegroups.com',
+    # This should be a valid link to your project's main homepage.
+    #
+    # This field corresponds to the "Home-Page" metadata field:
+    # https://packaging.python.org/specifications/core-metadata/#home-page-optional
+    url='https://github.com/pypa/sampleproject',  # Optional
 
-    # Choose your license
-    license='MIT',
+    # This should be your name or the name of the organization which owns the
+    # project.
+    author='The Python Packaging Authority',  # Optional
 
-    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
-    classifiers=[
+    # This should be a valid email address corresponding to the author listed
+    # above.
+    author_email='pypa-dev@googlegroups.com',  # Optional
+
+    # Classifiers help users find your project by categorizing it.
+    #
+    # For a list of valid classifiers, see
+    # https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[  # Optional
         # How mature is this project? Common values are
         #   3 - Alpha
         #   4 - Beta
@@ -63,49 +99,65 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    # What does your project relate to?
-    keywords='sample setuptools development',
+    # This field adds keywords for your project which will appear on the
+    # project page. What does your project relate to?
+    #
+    # Note that this is a string of words separated by whitespace, not a list.
+    keywords='sample setuptools development',  # Optional
 
-    # You can just specify the packages manually here if your project is
+    # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
-
-    # Alternatively, if you want to distribute just a my_module.py, uncomment
-    # this:
+    #
+    # Alternatively, if you just want to distribute a single Python file,
+    # uncomment this, which will expect a file called `my_module.py` to exist:
     #   py_modules=["my_module"],
+    packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
 
-    # List run-time dependencies here.  These will be installed by pip when
-    # your project is installed. For an analysis of "install_requires" vs pip's
-    # requirements files see:
+    # This field lists other packages that your project depends on to run.
+    # Any package you put here will be installed by pip when your project is
+    # installed, so they must be valid existing projects.
+    #
+    # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['peppercorn'],
+    install_requires=['peppercorn'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
-    # dependencies). You can install these using the following syntax,
-    # for example:
-    # $ pip install -e .[dev,test]
-    extras_require={
+    # dependencies). Users will be able to install these using the "extras"
+    # syntax, for example:
+    #
+    #   $ pip install sampleproject[dev]
+    #
+    # Similar to `install_requires` above, these must be valid existing
+    # projects.
+    extras_require={  # Optional
         'dev': ['check-manifest'],
         'test': ['coverage'],
     },
 
     # If there are data files included in your packages that need to be
-    # installed, specify them here.  If using Python 2.6 or less, then these
-    # have to be included in MANIFEST.in as well.
-    package_data={
+    # installed, specify them here.
+    #
+    # If using Python 2.6 or less, then these have to be included in
+    # MANIFEST.in as well.
+    package_data={  # Optional
         'sample': ['package_data.dat'],
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
-    # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files # noqa
+    # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
+    #
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    data_files=[('my_data', ['data/data_file'])],
+    data_files=[('my_data', ['data/data_file'])],  # Optional
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
-    # pip to create the appropriate form of executable for the target platform.
-    entry_points={
+    # `pip` to create the appropriate form of executable for the target
+    # platform.
+    #
+    # For example, the following would provide a command called `sample` which
+    # executes the function `main` from this package when invoked:
+    entry_points={  # Optional
         'console_scripts': [
             'sample=sample:main',
         ],
