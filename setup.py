@@ -70,7 +70,7 @@ setup(
     # This should be a valid email address corresponding to the author listed
     # above.
     author_email='pypa-dev@googlegroups.com',  # Optional
-    
+
     # This is the license of your project.
     license='MIT',
 
