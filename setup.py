@@ -165,4 +165,16 @@ setup(
             'sample=sample:main',
         ],
     },
+
+    # List additional URLs that are relevant to your project as a dict.
+    #
+    # This field corresponds to the "Project-URL" metadata fields:
+    # https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
+    #
+    # Examples listed include a pattern for specifying where the package
+    # maintainers would like thanks given or funding support.
+    project_urls={  # Optional
+        'funding': 'https://donate.pypi.org',
+        'thanks': 'http://saythanks.io/to/example'
+    },
 )
