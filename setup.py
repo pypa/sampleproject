@@ -171,10 +171,14 @@ setup(
     # This field corresponds to the "Project-URL" metadata fields:
     # https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
     #
-    # Examples listed include a pattern for specifying where the package
-    # maintainers would like thanks given or funding support.
+    # Examples listed include a pattern for specifying where the package tracks
+    # issues, where the source is hosted, where to say thanks to the package 
+    # maintainers, and where to support the project financially. The key is
+    # what's used to render the link text on PyPI.
     project_urls={  # Optional
-        'funding': 'https://donate.pypi.org',
-        'thanks': 'http://saythanks.io/to/example'
+        'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
+        'Funding': 'https://donate.pypi.org',
+        'Say Thanks!': 'http://saythanks.io/to/example',
+        'Source': 'https://github.com/pypa/sampleproject/',
     },
 )
