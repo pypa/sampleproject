@@ -60,14 +60,14 @@ setup(
     # Denotes that our long_description is in Markdown; valid values are
     # text/plain, text/x-rst, and text/markdown
     #
-    # Optional if long_description is written in rst but required for
-    # plain-text or Markdown; if unspecified, "applications should attempt to
-    # render [the long_description] as text/x-rst; charset=UTF-8 and fall back
-    # to text/plain if it is not valid rst" (see link below)
+    # Optional if long_description is written in reStructuredText (rst) but
+    # required for plain-text or Markdown; if unspecified, "applications should
+    # attempt to render [the long_description] as text/x-rst; charset=UTF-8 and
+    # fall back to text/plain if it is not valid rst" (see link below)
     #
     # This field corresponds to the "Description-Content-Type" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
-    long_description_content_type='text/markdown',  # Optional
+    long_description_content_type='text/markdown',  # Optional (see note above)
 
     # This should be a valid link to your project's main homepage.
     #
