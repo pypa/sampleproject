@@ -29,9 +29,9 @@ usage examples, etc. Generally, including the project changelog in here is not a
 good idea, although a simple “What's New” section for the most recent version
 may be appropriate.
 
-[packaging guide]: https://twitter.com/mcclure111/status/975031304742895616
-[distribution tutorial]: https://twitter.com/mcclure111/status/975031304742895616
-[src]: https://twitter.com/mcclure111/status/975031304742895616
-[rst]: https://twitter.com/mcclure111/status/975031304742895616
+[packaging guide]: https://packaging.python.org
+[distribution tutorial]: https://packaging.python.org/en/latest/distributing.html
+[src]: https://github.com/pypa/sampleproject
+[rst]: http://docutils.sourceforge.net/rst.html
 [md]: https://tools.ietf.org/html/rfc7764#section-3.5 "CommonMark variant"
 [md use]: https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
