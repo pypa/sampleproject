@@ -1,7 +1,22 @@
-# the inclusion of the tests module is not meant to offer best practices for
-# testing in general, but rather to support the `find_packages` example in
-# setup.py that excludes installing the "tests" package
+"""
+Testing is located here
+"""
+
+import logging
+import unittest
+
+import sample
 
 
-def test_success():
-    assert True
+class Test(unittest.TestCase):
+
+    def setUp(self):
+        pass
+
+    def test_main(self):
+        sample.main()
+
+
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
+    unittest.main()
