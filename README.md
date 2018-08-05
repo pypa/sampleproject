@@ -1,5 +1,11 @@
 # A sample Python project
 
+[![Build Status](https://www.travis-ci.org/Borda/py_sample-project.svg?branch=master)](https://www.travis-ci.org/Borda/py_sample-project)
+[![CircleCI](https://circleci.com/gh/Borda/py_sample-project/tree/master.svg?style=svg)](https://circleci.com/gh/Borda/py_sample-project/tree/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/57nanoy463aw91gp?svg=true)](https://ci.appveyor.com/project/Borda/py-sample-project)
+[![codecov](https://codecov.io/gh/Borda/py_sample-project/branch/master/graph/badge.svg)](https://codecov.io/gh/Borda/py_sample-project)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/da1bd8db4d4b451395cc71ca09c243d6)](https://www.codacy.com/app/Borda/sample-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Borda/sample-project&amp;utm_campaign=Badge_Grade)
+
 A sample project that exists as an aid to the [Python Packaging User
 Guide][packaging guide]'s [Tutorial on Packaging and Distributing
 Projects][distribution tutorial].

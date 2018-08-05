@@ -1,0 +1,49 @@
+#see https://github.com/codecov/support/wiki/Codecov-Yaml
+codecov:
+  notify:
+    require_ci_to_pass: yes
+
+coverage:
+  # 2 = xx.xx%, 0 = xx%
+  precision: 2
+  # how coverage is rounded: down/up/nearest
+  round: nearest
+   # custom range of coverage colors from red -> yellow -> green
+  range: 10...90
+  status:
+    # https://codecov.readme.io/v1.0/docs/commit-status
+    project:
+      default:
+        against: auto
+        # specify the target coverage for each commit status
+        target: 40%
+        # allow this little decrease on project
+        threshold: 20%
+        # https://github.com/codecov/support/wiki/Filtering-Branches
+        # branches: master
+        if_ci_failed: error
+    # https://github.com/codecov/support/wiki/Patch-Status
+    patch:
+      default:
+        against: parent
+        target: 30% # specify the target "X%" coverage to hit
+        # allow this much decrease on patch
+        # threshold: 50%
+    changes: false
+
+parsers:
+  gcov:
+    branch_detection:
+      conditional: true
+      loop: true
+      macro: false
+      method: false
+  javascript:
+    enable_partials: false
+
+comment:
+  layout: header, diff
+  require_changes: false
+  # update if exists else create new
+  behavior: default
+  branches: *

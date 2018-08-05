@@ -1,0 +1,51 @@
+version: 2.0
+
+jobs:
+  Py2:
+      docker:
+        - image: circleci/python:2.7
+      steps: &steps
+      - checkout
+      - run:
+          name: Install Packages
+          command: |
+            sudo apt-get update --fix-missing
+            sudo apt-get install tk-dev pkg-config python-dev python-tk
+      - run:
+          name: Install PyPI dependences
+          command: |
+            sudo pip install coverage pytest pytest-cov codecov codacy-coverage
+            pip install -r requirements.txt --user
+
+      - run:
+          name: Testing
+          command: |
+            python --version ; pip --version ; pwd ; ls -l
+            coverage run -m py.test sample tests -v --doctest-modules --junitxml=test-reports/pytest_junit.xml
+            coverage report && coverage xml -o test-reports/coverage.xml
+            codecov
+            export CODACY_PROJECT_TOKEN=d6ed8b6a5edb467e9b36359bbefa2eca
+            python-codacy-coverage -r test-reports/coverage.xml
+
+      - run:
+          name: Install this package
+          command: |
+            python setup.py install --user
+
+      - store_test_results:
+          path: test-reports
+      - store_artifacts:
+          path: test-reports
+
+  Py3:
+      docker:
+        - image: circleci/python:3.6
+      environment:
+      steps: *steps
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - Py2
+      - Py3
