@@ -8,9 +8,26 @@ __pycache__/
 *.so
 *~
 
-# due to using tox and pytest
-.tox
-.cache
+# due to using Tox
+.tox/
 
-# PyCharm
+# Unit test / coverage reports
+.cache
+htmlcov/
+pytest.*
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# temporary
+temp/
+temporary/
+
+# PyCharm IDE
 .idea/
+
+# Dropbox sync
+.dropbox.attr
