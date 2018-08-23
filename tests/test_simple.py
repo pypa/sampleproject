@@ -5,7 +5,7 @@ Testing is located here
 import logging
 import unittest
 
-import sample
+import sandbox
 
 
 class Test(unittest.TestCase):
@@ -14,7 +14,7 @@ class Test(unittest.TestCase):
         pass
 
     def test_main(self):
-        sample.main()
+        sandbox.main()
 
 
 if __name__ == '__main__':

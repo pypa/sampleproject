@@ -21,7 +21,7 @@ jobs:
           name: Testing
           command: |
             python --version ; pip --version ; pwd ; ls -l
-            coverage run -m py.test sample tests -v --doctest-modules --junitxml=test-reports/pytest_junit.xml
+            coverage run -m py.test sandbox tests -v --doctest-modules --junitxml=test-reports/pytest_junit.xml
             coverage report && coverage xml -o test-reports/coverage.xml
             codecov
             export CODACY_PROJECT_TOKEN=d6ed8b6a5edb467e9b36359bbefa2eca
