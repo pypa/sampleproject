@@ -1,6 +1,8 @@
 # this file is *not* meant to cover or endorse the use of travis, but rather to
 # help confirm pull requests to this project.
 
+dist: xenial  # Ubuntu 16.04
+
 language: python
 
 matrix:
@@ -13,6 +15,8 @@ matrix:
       env: TOXENV=py35
     - python: 3.6
       env: TOXENV=py36
+    - python: 3.7
+      env: TOXENV=py37
 
 install:
   - pip install -r requirements.txt
