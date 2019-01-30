@@ -135,10 +135,10 @@ setup(
 
     # Specify which Python versions you support. In contrast to the 'Programming
     # Language' classifiers above, 'pip install' will check this and refuse to
-    # install the project if the version does not match. If you support Python 2
-    # or have more complicated version requirements, see
+    # install the project if the version does not match. If you do not support
+    # Python 2, you can simplify this to '>=3.5' or similar, see
     # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-    python_requires='>=3.5',
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4',
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
