@@ -1,0 +1,15 @@
+pip install pipenv
+cd my-project
+pipenv install -- three
+
+The --three flag says to use python3
+
+`pipenv shell` - Activate shell
+`pipenv run` - Run a command outside the shell
+`pipenv install beautifulsoup4` - Install a package in the project
+`pipenv uninstall beautifulsoup4`
+`pipenv lock` - Package names, along with dependencies, can be frozen by updating the `Pipfile.lock`
+`pipenv install` - This will install the repo if it's cloned and the `Pipfile` is added to the repo
+
+`pipenv install --dev pytest` - Install a package for the development environment
+`pipenv install --dev` - Install the project and the dev dependencies
