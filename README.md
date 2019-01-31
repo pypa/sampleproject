@@ -1,5 +1,4 @@
-# Base Python Project
-[Parent Project][src]
+# Base Python Project - [Parent][src]
 
 ----
 
