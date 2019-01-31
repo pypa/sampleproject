@@ -13,4 +13,4 @@ __pycache__/
 .cache
 
 # python environment
-.env
+Pipfile.lock
