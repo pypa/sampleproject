@@ -30,7 +30,7 @@ good idea, although a simple “What's New” section for the most recent versio
 may be appropriate.
 
 [packaging guide]: https://packaging.python.org
-[distribution tutorial]: https://packaging.python.org/en/latest/distributing.html
+[distribution tutorial]: https://packaging.python.org/tutorials/packaging-projects/
 [src]: https://github.com/pypa/sampleproject
 [rst]: http://docutils.sourceforge.net/rst.html
 [md]: https://tools.ietf.org/html/rfc7764#section-3.5 "CommonMark variant"
