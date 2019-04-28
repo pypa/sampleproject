@@ -1,31 +1,50 @@
 version: 2.0
 
+references:
+
+  install_deps: &install_deps
+    run:
+      name: Install Packages
+      command: |
+        sudo apt-get update --fix-missing
+        sudo apt-get install tk-dev pkg-config python-dev python-tk
+
+  install_pips: &install_pips
+    run:
+      name: Install PyPI dependences
+      command: |
+        sudo pip install coverage pytest pytest-cov codecov codacy-coverage
+        pip install -r requirements.txt --user
+
+  test_coverage: &test_coverage
+    run:
+      name: Testing and Formating
+      command: |
+        python --version ; pip --version ; pwd ; ls -l
+        coverage run -m py.test sandbox tests -v --doctest-modules --junitxml=test-reports/pytest_junit.xml
+        coverage report && coverage xml -o test-reports/coverage.xml
+        codecov
+        export CODACY_PROJECT_TOKEN=d6ed8b6a5edb467e9b36359bbefa2eca
+        python-codacy-coverage -r test-reports/coverage.xml
+
+  make_docs: &make_docs
+   run:
+     name: Make Documentation
+     command: |
+       sudo pip install -r requirements-doc.txt
+       sphinx-apidoc -o ./docs/source ./sandbox --force
+       cd docs && make html
+
 jobs:
   Py2:
       docker:
         - image: circleci/python:2.7
       steps: &steps
       - checkout
-      - run:
-          name: Install Packages
-          command: |
-            sudo apt-get update --fix-missing
-            sudo apt-get install tk-dev pkg-config python-dev python-tk
-      - run:
-          name: Install PyPI dependences
-          command: |
-            sudo pip install coverage pytest pytest-cov codecov codacy-coverage
-            pip install -r requirements.txt --user
-
-      - run:
-          name: Testing
-          command: |
-            python --version ; pip --version ; pwd ; ls -l
-            coverage run -m py.test sandbox tests -v --doctest-modules --junitxml=test-reports/pytest_junit.xml
-            coverage report && coverage xml -o test-reports/coverage.xml
-            codecov
-            export CODACY_PROJECT_TOKEN=d6ed8b6a5edb467e9b36359bbefa2eca
-            python-codacy-coverage -r test-reports/coverage.xml
+      - *install_deps
+      - *install_pips
+      - *test_coverage
+      - *make_docs
 
       - run:
           name: Install this package

@@ -12,8 +12,13 @@ include LICENSE.txt
 # Include the data files
 recursive-include data *
 
+# Exclude the documentation files
+recursive-exclude docs *
+exclude docs
+
 # Include the Requirements
 include requirements.txt
+exclude requirements-*.txt
 
 # Exclude build configs
 exclude *.yml
