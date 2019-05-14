@@ -13,6 +13,7 @@ references:
     run:
       name: Install PyPI dependences
       command: |
+        sudo pip install pip -U
         sudo pip install coverage pytest pytest-cov codecov codacy-coverage
         pip install -r requirements.txt --user
 
@@ -31,7 +32,7 @@ references:
    run:
      name: Make Documentation
      command: |
-       sudo pip install -r requirements-doc.txt
+       sudo pip install -r docs/requirements.txt
        sphinx-apidoc -o ./docs/source ./sandbox --force
        cd docs && make html
 

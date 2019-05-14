@@ -57,9 +57,10 @@ install:
   # credits: JuliaLang developers.
   - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%path%
   - python --version
+  - pip install pip -U --user
   - pip --version
   - pip install -r requirements.txt
-  - pip install tox
+  - pip install "tox<3.10.0"  # for py27 it fails for missing . in MANIFEST
   - pip freeze
   - dir
 

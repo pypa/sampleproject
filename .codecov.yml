@@ -46,4 +46,4 @@ comment:
   require_changes: false
   # update if exists else create new
   behavior: default
-  branches: *
+  # branches: *

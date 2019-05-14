@@ -31,3 +31,6 @@ temporary/
 
 # Dropbox sync
 .dropbox.attr
+
+# Documentation
+docs/build/

@@ -18,7 +18,7 @@ exclude docs
 
 # Include the Requirements
 include requirements.txt
-exclude requirements-*.txt
+exclude docs/requirements.txt
 
 # Exclude build configs
 exclude *.yml
