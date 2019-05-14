@@ -30,6 +30,11 @@ version = sandbox.__version__
 # The full version, including alpha/beta/rc tags
 release = sandbox.__version__
 
+# export the documentation
+with open('intro.md', 'w') as fp:
+    # fp.write(sandbox.__doc__.replace(os.linesep + ' ', ''))
+    fp.write(sandbox.__doc__)
+
 
 # -- General configuration ---------------------------------------------------
 
@@ -48,6 +53,7 @@ extensions = [
     'sphinx.ext.coverage',
     # 'sphinx.ext.viewcode',
     'recommonmark',
+    # 'm2r',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -110,7 +116,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'SandboxProjectDoc'
+htmlhelp_basename = 'SandboxDoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -137,8 +143,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'SampleProject.tex', 'Sample Project Documentation',
-     'JB', 'manual'),
+    (master_doc, 'SampleProject.tex', 'Sample Project Documentation', 'JB', 'manual'),
 ]
 
 
@@ -147,8 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'sampleproject', 'Sample Project Documentation',
-     [author], 1)
+    (master_doc, 'sampleproject', 'Sample Project Documentation', [author], 1)
 ]
 
 
@@ -158,9 +162,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'SampleProject', 'Sample Project Documentation',
-     author, 'SampleProject', 'One line description of project.',
-     'Miscellaneous'),
+    (master_doc, 'SampleProject', 'Sample Project Documentation', author, 'SampleProject',
+     'One line description of project.', 'Miscellaneous'),
 ]
 
 

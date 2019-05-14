@@ -19,6 +19,7 @@ matrix:
       env: TOXENV=py37
 
 install:
+  - pip install pip -U
   - pip install -r requirements.txt
   - pip install tox
 

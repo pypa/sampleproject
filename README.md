@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.travis-ci.org/Borda/py_sample-project.svg?branch=master)](https://www.travis-ci.org/Borda/py_sample-project)
 [![CircleCI](https://circleci.com/gh/Borda/py_sample-project/tree/master.svg?style=svg)](https://circleci.com/gh/Borda/py_sample-project/tree/master)
-[![Build status](https://ci.appveyor.com/api/projects/status/57nanoy463aw91gp?svg=true)](https://ci.appveyor.com/project/Borda/py-sample-project)
+[![Build status](https://ci.appveyor.com/api/projects/status/57nanoy463aw91gp/branch/master?svg=true)](https://ci.appveyor.com/project/Borda/py-sample-project/branch/master)
 [![codecov](https://codecov.io/gh/Borda/py_sample-project/branch/master/graph/badge.svg)](https://codecov.io/gh/Borda/py_sample-project)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/da1bd8db4d4b451395cc71ca09c243d6)](https://www.codacy.com/app/Borda/sample-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Borda/sample-project&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/borda/py_sample-project/badge)](https://www.codefactor.io/repository/github/borda/py_sample-project)
