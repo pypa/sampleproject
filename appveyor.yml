@@ -60,7 +60,7 @@ install:
   - pip install pip -U --user
   - pip --version
   - pip install -r requirements.txt
-  - pip install "tox<3.10.0"  # for py27 it fails for missing . in MANIFEST
+  - pip install -U --force-reinstall tox  # https://github.com/tox-dev/tox/issues/1296
   - pip freeze
   - dir
 
