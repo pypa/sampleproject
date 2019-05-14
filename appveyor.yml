@@ -57,9 +57,10 @@ install:
   # credits: JuliaLang developers.
   - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%path%
   - python --version
+  - pip install pip -U --user
   - pip --version
   - pip install -r requirements.txt
-  - pip install tox
+  - pip install -U --force-reinstall tox  # https://github.com/tox-dev/tox/issues/1296
   - pip freeze
   - dir
 

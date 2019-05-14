@@ -1,0 +1,3 @@
+sphinx
+recommonmark  # fails with badges
+# m2r  # fails with multi-line text
