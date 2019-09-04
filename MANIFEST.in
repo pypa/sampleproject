@@ -24,5 +24,6 @@ exclude docs/requirements.txt
 exclude *.yml
 
 prune .git
+prune .github
 prune venv
 prune test*
