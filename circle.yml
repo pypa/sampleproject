@@ -14,8 +14,8 @@ references:
       name: Install PyPI dependences
       command: |
         sudo pip install pip -U
-        sudo pip install coverage pytest pytest-cov codecov codacy-coverage
         pip install -r requirements.txt --user
+        sudo pip install coverage pytest pytest-cov codecov codacy-coverage
 
   test_coverage: &test_coverage
     run:

@@ -1,14 +1,16 @@
-name: Python package
+name: Python project
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
-      max-parallel: 4
+      fail-fast: false
+      max-parallel: 5
       matrix:
+        os: [ubuntu-18.04, windows-2016, macOS-10.14]
         python-version: [2.7, 3.5, 3.6, 3.7]
 
     steps:
@@ -31,4 +33,4 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
-        pytest
+        pytest .  -v --doctest-modules --ignore=docs
