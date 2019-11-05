@@ -186,7 +186,7 @@ setup(
     # executes the function `main` from this package when invoked:
     entry_points={  # Optional
         'console_scripts': [
-            'sample=sample:main',
+            'sample=sample.__main__:main',
         ],
     },
 
