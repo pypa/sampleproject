@@ -22,10 +22,10 @@ environment:
       PYTHON_ARCH: "64"
       TOXENV: "py27"
 
-    - PYTHON: "C:\\Python35"
-      PYTHON_VERSION: "3.5.x"
-      PYTHON_ARCH: "32"
-      TOXENV: "py35"
+#    - PYTHON: "C:\\Python35"
+#      PYTHON_VERSION: "3.5.x"
+#      PYTHON_ARCH: "32"
+#      TOXENV: "py35"
 
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6.x"
@@ -39,22 +39,29 @@ environment:
 
 build: off
 
+# https://www.appveyor.com/docs/build-cache/
+cache:
+  - C:\ProgramData\chocolatey\bin -> appveyor.yml
+  - C:\ProgramData\chocolatey\lib -> appveyor.yml
+  - '%LOCALAPPDATA%\pip\Cache -> appveyor.yml'
+
 install:
   # If there is a newer build queued for the same PR, cancel this one.
   # The AppVeyor 'rollout builds' option is supposed to serve the same
   # purpose but it is problematic because it tends to cancel builds pushed
   # directly to master instead of just PR builds (or the converse).
   # credits: JuliaLang developers.
-  - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%path%
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - python -m pip install --upgrade pip
+  - pip install tox
+
+before_test:
   - python --version
-  - python -m pip install "pip<19.3" -U --user
   - pip --version
-  - pip install -r requirements.txt
-  - pip install -U --force-reinstall tox  # https://github.com/tox-dev/tox/issues/1296
   - pip list
   - dir
 
-
-test_script: tox
+test_script:
+  - tox -v --sitepackages --parallel auto
 
 #on_success: coverage report

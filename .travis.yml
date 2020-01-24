@@ -18,7 +18,6 @@ matrix:
 
 install:
   - pip install pip -U
-  - pip install -r requirements.txt
   - pip install tox
 
 script: tox
