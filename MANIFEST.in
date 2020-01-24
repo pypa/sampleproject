@@ -3,6 +3,10 @@ graft wheelhouse
 
 recursive-exclude __pycache__  *.pyc *.pyo *.orig
 
+include pyproject.toml
+# this is to ignore example with package in sub-directory
+prune src/
+
 # Include the README
 include *.md
 
