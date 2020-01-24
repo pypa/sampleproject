@@ -47,7 +47,7 @@ install:
   # credits: JuliaLang developers.
   - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%path%
   - python --version
-  - pip install "pip<19.3" -U --user
+  - python -m pip install "pip<19.3" -U --user
   - pip --version
   - pip install -r requirements.txt
   - pip install -U --force-reinstall tox  # https://github.com/tox-dev/tox/issues/1296

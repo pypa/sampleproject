@@ -1,3 +1,5 @@
-sphinx
+sphinx>=1.4
 recommonmark  # fails with badges
-# m2r  # fails with multi-line text
+m2r  # fails with multi-line text
+pandoc
+docutils<0.15  # higher version breaks py2
