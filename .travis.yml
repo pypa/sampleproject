@@ -1,10 +1,6 @@
 # this file is *not* meant to cover or endorse the use of travis, but rather to
 # help confirm pull requests to this project.
 
-dist: xenial  # Ubuntu 16.04
-
-language: python
-
 matrix:
   include:
     - dist: xenial  # Ubuntu 16.04
