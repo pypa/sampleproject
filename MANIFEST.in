@@ -3,6 +3,11 @@ graft wheelhouse
 
 recursive-exclude __pycache__  *.pyc *.pyo *.orig
 
+#include pyproject.toml
+recursive-include sandbox *.py
+recursive-include sandbox *.dat
+include sandbox
+
 # Include the README
 include *.md
 
@@ -18,7 +23,6 @@ exclude docs
 
 # Include the Requirements
 include requirements.txt
-exclude docs/requirements.txt
 
 # Exclude build configs
 exclude *.yml

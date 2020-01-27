@@ -1,5 +1,6 @@
-__version__ = '0.1.2'
-__doc__ = """
+__version__ = '1.3.1'
+__doc__ = "A sample Python project"
+__doc_long__ = """
 # Sample project
 
 A sample project that exists as an aid to the Python Packaging User Guide's Tutorial
