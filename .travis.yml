@@ -17,12 +17,33 @@ matrix:
       env: TOXENV=py37
     - python: 3.8
       env: TOXENV=py38
+    - os: osx
+      osx_image: xcode10.3
+      language: generic
+      env: TOXENV=py37
+      before_install:
+        # - brew update && brew install git-lfs
+        - pip3 install virtualenv
+        - virtualenv -p python3 ~/venv
+        - source ~/venv/bin/activate
+    # https://blog.travis-ci.com/2019-08-07-extensive-python-testing-on-travis-ci
+    # https://docs.travis-ci.com/user/languages/python/
+    - os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.7.0
+        - python -m pip install --upgrade pip
+      env: PATH=/c/Python37:/c/Python37/Scripts:%OPENCV_DIR%/bin:$PATH
+  # https://towardsdatascience.com/extensive-python-testing-on-travis-ci-4c24db9bf961
+  allow_failures:
+   - os: osx
+   - os: windows
 
 install:
   - pip install pip -U
-  - pip install tox pytest flake8
+  - pip install tox  # pytest flake8
 
-script: tox --sitepackages
+script: tox  # --sitepackages
 
 notifications:
   email: false
