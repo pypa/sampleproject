@@ -53,7 +53,7 @@ install:
   # credits: JuliaLang developers.
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - python -m pip install --upgrade pip
-  - pip install tox  # pytest flake8
+  - pip install tox coverage  # pytest flake8
 
 before_test:
   - python --version
@@ -64,4 +64,5 @@ before_test:
 test_script:
   - tox -v  # --sitepackages --parallel auto
 
-#on_success: coverage report
+on_success:
+  - coverage report
