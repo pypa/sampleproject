@@ -20,9 +20,9 @@ matrix:
 
 install:
   - pip install pip -U
-  - pip install tox
+  - pip install tox pytest flake8
 
-script: tox
+script: tox --sitepackages
 
 notifications:
   email: false
