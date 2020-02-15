@@ -1,0 +1,15 @@
+name: "Docs check"
+# https://github.com/marketplace/actions/sphinx-build
+
+on:
+- pull_request
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"

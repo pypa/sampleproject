@@ -1,4 +1,4 @@
-name: Python project
+name: CI testing
 
 on: [push, pull_request]
 
