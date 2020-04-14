@@ -34,7 +34,7 @@ references:
      command: |
        sudo pip install -r docs/requirements.txt
        sphinx-apidoc -o ./docs/source ./sandbox --force
-       cd docs && make html
+       cd docs && make html --debug --jobs 2 SPHINXOPTS="-W"
 
 jobs:
   Py2:
