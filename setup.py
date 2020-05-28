@@ -75,11 +75,11 @@ setup(
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='The Python Packaging Authority',  # Optional
+    author='A. Random Developer',  # Optional
 
     # This should be a valid email address corresponding to the author listed
     # above.
-    author_email='pypa-dev@googlegroups.com',  # Optional
+    author_email='author@example.com',  # Optional
 
     # Classifiers help users find your project by categorizing it.
     #
