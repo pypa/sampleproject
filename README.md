@@ -1,6 +1,13 @@
 # A sample Python project
 
-![alt text](https://www.python.org/static/img/python-logo.png "Sample inline image")
+![Python Logo](https://www.python.org/static/community_logos/python-logo.png "Sample inline image")
+
+
+![license][license]
+![last commit][last_commit]
+
+![tweet me][twitter_shield]
+![discord server][discord_server]
 
 A sample project that exists as an aid to the [Python Packaging User
 Guide][packaging guide]'s [Tutorial on Packaging and Distributing
@@ -35,5 +42,9 @@ may be appropriate.
 [distribution tutorial]: https://packaging.python.org/tutorials/packaging-projects/
 [src]: https://github.com/pypa/sampleproject
 [rst]: http://docutils.sourceforge.net/rst.html
-[md]: https://tools.ietf.org/html/rfc7764#section-3.5 "CommonMark variant"
 [md use]: https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
+
+[twitter_shield]: https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FSaltyCatFish
+[license]: https://img.shields.io/badge/license-MIT-brightgreen
+[last_commit]: https://img.shields.io/github/last-commit/saltycatfish/sampleproject
+[discord_server]: https://img.shields.io/discord/314944764648620033
