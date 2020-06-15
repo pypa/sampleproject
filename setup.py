@@ -112,7 +112,7 @@ setup(
     # This field adds keywords for your project which will appear on the
     # project page. What does your project relate to?
     #
-    # Note that this is a A list of additional keywords, separated
+    # Note that this is a list of additional keywords, separated
     # by commas, to be used to assist searching for the distribution in a
     # larger catalog.
     keywords='sample, setuptools, development',  # Optional
