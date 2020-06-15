@@ -112,7 +112,7 @@ setup(
     # This field adds keywords for your project which will appear on the
     # project page. What does your project relate to?
     #
-    # Note that this is a string of words separated by whitespace, not a list.
+    # Note that this is a string of words separated by a comma and single whitespace, not a list.
     keywords='sample, setuptools, development',  # Optional
 
     # When your source code is in a subdirectory under the project root, e.g.
