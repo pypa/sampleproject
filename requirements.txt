@@ -1,0 +1,12 @@
+#
+# Install package from current path (including all dependencies from setup.py)
+#
+--index-url https://pypi.python.org/simple/
+
+#
+# Use line similar commented below for "local" override of package bar
+#
+# -e https://github.com/foo/bar.git#egg=bar
+#
+
+-e .
