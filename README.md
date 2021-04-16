@@ -6,6 +6,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/57nanoy463aw91gp/branch/master?svg=true)](https://ci.appveyor.com/project/Borda/py-sample-project/branch/master)
 [![Build Status](https://dev.azure.com/jborovec/sample%20project/_apis/build/status/Borda.py_sample-project?branchName=master)](https://dev.azure.com/jborovec/sample%20project/_build/latest?definitionId=1&branchName=master)
 * Coverage: [![codecov](https://codecov.io/gh/Borda/py_sample-project/branch/master/graph/badge.svg)](https://codecov.io/gh/Borda/py_sample-project)
+[![Coverage Status](https://coveralls.io/repos/github/Borda/py_sample-project/badge.svg?branch=master)](https://coveralls.io/github/Borda/py_sample-project?branch=master)
 * Quality: [![Codacy Badge](https://api.codacy.com/project/badge/Grade/da1bd8db4d4b451395cc71ca09c243d6)](https://www.codacy.com/app/Borda/sample-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Borda/sample-project&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/borda/py_sample-project/badge)](https://www.codefactor.io/repository/github/borda/py_sample-project)
 * Documentation: [![Documentation Status](https://readthedocs.org/projects/py-sample-project/badge/?version=latest)](https://py-sample-project.readthedocs.io/en/latest/?badge=latest)
