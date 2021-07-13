@@ -10,6 +10,7 @@ from sample.simple import add_one
 class TestSimple(unittest.TestCase):
 
     def test_add_one(self):
+        number = 1
         self.assertEqual(add_one(5), 6)
 
 
