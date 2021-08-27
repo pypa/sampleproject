@@ -1,6 +1,10 @@
 # this file is *not* meant to cover or endorse the use of travis, but rather to
 # help confirm pull requests to this project.
 
+os:
+  - osx
+  - windows
+
 language: python
 
 python:
