@@ -143,7 +143,7 @@ setup(
     # installed, so they must be valid existing projects.
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
-    # https://packaging.python.org/en/latest/requirements.html
+    # https://packaging.python.org/discussions/install-requires-vs-requirements
     install_requires=['peppercorn'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
