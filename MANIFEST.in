@@ -1,5 +1,2 @@
-# Include the README
-include *.md
-
 # Include the data files
 recursive-include data *
