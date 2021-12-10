@@ -4,7 +4,7 @@
 
 import unittest
 
-from append-zip.append-zip import add_one
+from appendzip.appendzip import add_one
 
 
 class TestSimple(unittest.TestCase):
