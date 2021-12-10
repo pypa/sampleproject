@@ -6,7 +6,7 @@ name: Release
 on:
   push:
     branches:
-      - bob
+      - master
 
 jobs:
   build-and-publish:
