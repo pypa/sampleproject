@@ -1,11 +1,9 @@
 import pathlib
 import shutil
+import tempfile
 
 
 def appendzip(dest: pathlib.Path, file_to_include: pathlib.Path, arcname: str):
-    if pathlib.Path("temp").exists():
-        shutil.rmtree("temp")
-
     if file_to_include.exists() is False:
         raise Exception("file to include does not exist")
 
@@ -15,12 +13,18 @@ def appendzip(dest: pathlib.Path, file_to_include: pathlib.Path, arcname: str):
     if isinstance(arcname, str) is False:
         raise Exception("arcname should be a string")
 
-    shutil.unpack_archive(dest, "temp")
+    place_to_unpack = tempfile.TemporaryDirectory()
 
-    copy2_path = pathlib.Path("temp").joinpath(arcname)
+    shutil.unpack_archive(dest, place_to_unpack.name)
+
+    copy2_path = pathlib.Path(place_to_unpack.name).joinpath(arcname)
 
     shutil.copy2(file_to_include, copy2_path)
 
-    shutil.make_archive(dest.stem, "zip", root_dir="temp")
+    shutil.make_archive(
+        dest.parent.joinpath(dest.stem),
+        "zip",
+        root_dir=place_to_unpack.name
+    )
 
-    shutil.rmtree("temp")
+    place_to_unpack.cleanup()
