@@ -10,7 +10,7 @@ from zipfile import ZipFile
 from src.appendzip.appendzip import appendzip
 
 test_zip_path = pathlib.Path("test.zip")
-delta = 33
+delta = 0
 
 
 def createZip():
