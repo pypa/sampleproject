@@ -25,5 +25,6 @@ jobs:
     - name: Publish
       uses: pypa/gh-action-pypi-publish@master
       with:
-        password: ${{ secrets.pypi_password }}
+        username: __token__
+        password: ${{ secrets.PYPI_TOKEN }}
         skip_existing: true
