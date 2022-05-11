@@ -26,7 +26,7 @@ jobs:
       - name: Update pyproject.toml
         run: |
           LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
-          portry version $LATEST
+          poetry version $LATEST
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
