@@ -14,13 +14,12 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install dependancies
-        uses: snok/install-poetry@v1.3.1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+          source $HOME/.poetry/env
+          echo $HOME/.poetry/env >> ~/.bashrc
       - name: Update pyproject.toml
         run: |
-          echo PATH="$HOME/runner/.local/bin" >> $GITHUB_PATH
           LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
           portry version $LATEST
       - name: Create Pull Request
