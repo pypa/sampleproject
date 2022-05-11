@@ -2,7 +2,7 @@
 name = "sampleproject"
 version = "0"
 description = ""
-authors = saorio
+authors = "saorio <saorio@test.com>"
 
 [build-system]
 # These are the assumed default build requirements from pip:
