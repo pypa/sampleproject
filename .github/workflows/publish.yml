@@ -6,17 +6,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ '3.9' ]
     steps:
       - uses: actions/checkout@v3
+      - name: Install poetry
+        run: |
+          curl -O -sSL https://install.python-poetry.org/install-poetry.py
+          python install-poetry.py -y --version 1.1.13
+          echo "PATH=${HOME}/.poetry/bin:${PATH}" >> $GITHUB_ENV
+          rm install-poetry.py
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
-          python-version: '3.x'
-      - name: Run image
-        uses: abatilo/actions-poetry@v2.1.4
-        with:
-          poetry-version: '1.1.13'
+          python-version: ${{ matrix.python-version }}
+          cache: 'poetry'
       - name: Update pyproject.toml
         run: |
           LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
