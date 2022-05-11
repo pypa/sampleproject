@@ -6,9 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [ '3.9' ]
     steps:
       - uses: actions/checkout@v3
       - name: Install poetry
@@ -18,11 +15,14 @@ jobs:
           echo "PATH=${HOME}/.poetry/bin:${PATH}" >> $GITHUB_ENV
           rm install-poetry.py
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.9'
           cache: 'poetry'
+      - run: |
+          portry env use 3.9
+          poetry install
       - name: Update pyproject.toml
         run: |
           LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
