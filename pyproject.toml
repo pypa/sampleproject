@@ -1,3 +1,9 @@
+[tool.poetry]
+name = "sampleproject"
+version = "0"
+description = ""
+authors = saorio
+
 [build-system]
 # These are the assumed default build requirements from pip:
 # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
