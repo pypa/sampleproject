@@ -17,10 +17,11 @@ jobs:
         uses: snok/install-poetry@v1.3.1
         with:
           virtualenvs-create: true
+          virtualenvs-path: ~/.venv
           virtualenvs-in-project: true
       - name: Update pyproject.toml
         run: |
-          source .venv/bin/activate
+          source ~/.venv/bin/activate
           LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
           portry version $LATEST
       - name: Create Pull Request
