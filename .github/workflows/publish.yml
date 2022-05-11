@@ -21,7 +21,7 @@ jobs:
           python-version: '3.9'
           cache: 'poetry'
       - run: |
-          portry env use 3.9
+          poetry env use 3.9
           poetry install
       - name: Update pyproject.toml
         run: |
