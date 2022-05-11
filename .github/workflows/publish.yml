@@ -14,9 +14,10 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install dependancies
-        run: |
-          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
-          echo PATH="$HOME/.poetry/bin" >> $GITHUB_PATH
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
       - name: Update pyproject.toml
         run: |
           LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
