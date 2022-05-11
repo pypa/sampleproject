@@ -12,13 +12,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-        python-version: '3.x'
+          python-version: '3.x'
       - name: Install dependancies
         run: |
           pip install poetry
       - name: Update pyproject.toml
         run: |
-          portry version $(git tag --sort=-creatordate | head -1)
+          LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
+          portry version $LATEST
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
