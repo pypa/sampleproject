@@ -16,7 +16,7 @@ jobs:
       - name: Install dependancies
         run: |
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
-          echo "$HOME/runner/.local/bin" >> $GITHUB_PATH
+          echo PATH="$HOME/.poetry/bin" >> $GITHUB_PATH
       - name: Update pyproject.toml
         run: |
           LATEST=$(git tag --sort=-creatordate | head -1 | awk '{print substr($0, 2)}')
