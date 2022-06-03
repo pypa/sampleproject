@@ -1,4 +1,4 @@
-name: Create PR from devel to main
+name: Update Pyproject version
 on:
   pull_request:
     types: [opened, ready_for_review]
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  modify-version:
+  update-version:
     name: Modify project version
     runs-on: ubuntu-latest
     steps:
