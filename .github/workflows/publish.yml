@@ -4,16 +4,16 @@ on:
     types: [published]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install poetry
-        run: |
-          curl -O -sSL https://install.python-poetry.org/install-poetry.py
-          python install-poetry.py -y --version 1.1.13
-          echo "PATH=${HOME}/.poetry/bin:${PATH}" >> $GITHUB_ENV
-          rm install-poetry.py
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Install poetry
+  #       run: |
+  #         curl -O -sSL https://install.python-poetry.org/install-poetry.py
+  #         python install-poetry.py -y --version 1.1.13
+  #         echo "PATH=${HOME}/.poetry/bin:${PATH}" >> $GITHUB_ENV
+  #         rm install-poetry.py
 
       # - name: Set up Python
       #   uses: actions/setup-python@v3
@@ -43,19 +43,19 @@ jobs:
       #       [1]: https://github.com/peter-evans/create-pull-request
       #     labels: release
       #     assignees: saorio
-  release:
-    # https://github.community/t/how-do-i-specify-job-dependency-running-in-another-workflow/16482
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'Release ')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-python@v3
-        with:
-          python-version: 3.9
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Semantic Release
-        run: |
-          pip install python-semantic-release
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          semantic-release publish
+  # release:
+  #   # https://github.community/t/how-do-i-specify-job-dependency-running-in-another-workflow/16482
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'Release ')
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/setup-python@v3
+  #       with:
+  #         python-version: 3.9
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #     - name: Semantic Release
+  #       run: |
+  #         pip install python-semantic-release
+  #         git config user.name github-actions
+  #         git config user.email github-actions@github.com
+  #         semantic-release publish
