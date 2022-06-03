@@ -1,0 +1,27 @@
+name: Create PR from devel to main
+on:
+  push:
+    branches:
+      - devel
+jobs:
+  create-release-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up Ruby 3.0
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0
+        bundler-cache: true
+    - name: Create a release pull request
+      env:
+        GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_PR_RELEASE_BRANCH_PRODUCTION: main
+        GIT_PR_RELEASE_BRANCH_STAGING: devel
+      run: |
+        apt-get update && apt-get upgrade
+        gem install -N git-pr-release
+        git-pr-release --no-fetch
