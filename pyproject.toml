@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sampleproject"
-version = "0"
+version = "0.1.0"
 description = ""
 authors = ["saorio <saorio@test.com>"]
 
@@ -9,3 +9,14 @@ authors = ["saorio <saorio@test.com>"]
 # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
 requires = ["setuptools>=43.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4.0"
+python-semantic-release = "^7.29.1"
+
+[tool.semantic_release]
+version_variable = "pyproject.toml:version"
+branch = "main"
+upload_to_pypi = false
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
