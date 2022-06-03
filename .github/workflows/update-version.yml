@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [opened, ready_for_review]
     branches:
-      - devel
+      - main
 
 jobs:
   update-version:
