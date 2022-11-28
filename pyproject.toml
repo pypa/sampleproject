@@ -112,7 +112,7 @@ dependencies = [ # Optional
 #
 #   $ pip install sampleproject[dev]
 #
-# Similar to `install_requires` above, these must be valid existing
+# Similar to `dependencies` above, these must be valid existing
 # projects.
 [project.optional-dependencies] # Optional
 dev = ["check-manifest"]
