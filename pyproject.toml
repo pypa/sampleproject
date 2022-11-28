@@ -51,7 +51,7 @@ license = {file = "LICENSE.txt"}
 # Note that this is a list of additional keywords, separated
 # by commas, to be used to assist searching for the distribution in a
 # larger catalog.
-keywords= ["sample", "setuptools", "development"]  # Optional
+keywords = ["sample", "setuptools", "development"]  # Optional
 
 # This should be your name or the name of the organization who originally
 # authored the project, and a valid email address corresponding to the name
@@ -102,7 +102,7 @@ classifiers = [  # Optional
 #
 # For an analysis of this field vs pip's requirements files see:
 # https://packaging.python.org/discussions/install-requires-vs-requirements/
-dependencies=[
+dependencies = [
   "peppercorn"  # Optional
 ]
 
@@ -114,9 +114,9 @@ dependencies=[
 #
 # Similar to `install_requires` above, these must be valid existing
 # projects.
-[project.optional-dependencies]
-dev = ["check-manifest"] # Optional
-test = ["coverage"] # Optional
+[project.optional-dependencies] # Optional
+dev = ["check-manifest"]
+test = ["coverage"]
 
 # List URLs that are relevant to your project
 #
