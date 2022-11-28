@@ -102,8 +102,8 @@ classifiers = [  # Optional
 #
 # For an analysis of this field vs pip's requirements files see:
 # https://packaging.python.org/discussions/install-requires-vs-requirements/
-dependencies = [
-  "peppercorn"  # Optional
+dependencies = [ # Optional
+  "peppercorn"
 ]
 
 # List additional groups of dependencies here (e.g. development
