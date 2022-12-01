@@ -135,16 +135,13 @@ test = ["coverage"]
 "Say Thanks!" = "http://saythanks.io/to/example"
 "Source" = "https://github.com/pypa/sampleproject/"
 
-# To provide executable scripts, use entry points in preference to the
-# "scripts" keyword. Entry points provide cross-platform support and allow
-# `pip` to create the appropriate form of executable for the target
-# platform.
-#
-# For example, the following would provide a command called `sample` which
-# executes the function `main` from this package when invoked:
+# The following would provide a command line executable called `sample`
+# which executes the function `main` from this package when invoked.
 [project.scripts]  # Optional
 sample = "sample:main"
 
+# This is configuration specific to the `setuptools` build backend.
+# If you are using a different build backend, you will need to change this.
 [tool.setuptools]
 # If there are data files included in your packages that need to be
 # installed, specify them here.
