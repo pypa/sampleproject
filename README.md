@@ -12,7 +12,7 @@ recommendations for version control, documentation, or testing.
 
 [The source for this project is available here][src].
 
-Most of the configuration for a Python project is done in the `setup.py` file,
+The metadata for a Python project is defined in the `pyproject.toml` file,
 an example of which is included in this project. You should edit this file
 accordingly to adapt this sample project to your needs.
 

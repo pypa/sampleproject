@@ -1,3 +1,152 @@
+[project]
+# This is the name of your project. The first time you publish this
+# package, this name will be registered for you. It will determine how
+# users can install this project, e.g.:
+#
+# $ pip install sampleproject
+#
+# And where it will live on PyPI: https://pypi.org/project/sampleproject/
+#
+# There are some restrictions on what makes a valid project name
+# specification here:
+# https://packaging.python.org/specifications/core-metadata/#name
+name = "sampleproject"  # Required
+
+# Versions should comply with PEP 440:
+# https://www.python.org/dev/peps/pep-0440/
+#
+# For a discussion on single-sourcing the version, see
+# https://packaging.python.org/guides/single-sourcing-package-version/
+version = "3.0.0"  # Required
+
+# This is a one-line description or tagline of what your project does. This
+# corresponds to the "Summary" metadata field:
+# https://packaging.python.org/specifications/core-metadata/#summary
+description = "A sample Python project"  # Optional
+
+# This is an optional longer description of your project that represents
+# the body of text which users will see when they visit PyPI.
+#
+# Often, this is the same as your README, so you can just read it in from
+# that file directly (as we have already done above)
+#
+# This field corresponds to the "Description" metadata field:
+# https://packaging.python.org/specifications/core-metadata/#description-optional
+readme = "README.md" # Optional
+
+# Specify which Python versions you support. In contrast to the
+# 'Programming Language' classifiers above, 'pip install' will check this
+# and refuse to install the project if the version does not match. See
+# https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
+requires-python = ">=3.7"
+
+# This is either text indicating the license for the distribution, or a file
+# that contains the license
+# https://packaging.python.org/en/latest/specifications/core-metadata/#license
+license = {file = "LICENSE.txt"}
+
+# This field adds keywords for your project which will appear on the
+# project page. What does your project relate to?
+#
+# Note that this is a list of additional keywords, separated
+# by commas, to be used to assist searching for the distribution in a
+# larger catalog.
+keywords = ["sample", "setuptools", "development"]  # Optional
+
+# This should be your name or the name of the organization who originally
+# authored the project, and a valid email address corresponding to the name
+# listed.
+authors = [
+  {name = "A. Random Developer", email = "author@example.com" } # Optional
+]
+
+# This should be your name or the names of the organization who currently
+# maintains the project, and a valid email address corresponding to the name
+# listed.
+maintainers = [
+  {name = "A. Great Maintainer", email = "maintainer@example.com" } # Optional
+]
+
+# Classifiers help users find your project by categorizing it.
+#
+# For a list of valid classifiers, see https://pypi.org/classifiers/
+classifiers = [  # Optional
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 3 - Alpha",
+
+  # Indicate who your project is intended for
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+
+  # Pick your license as you wish
+  "License :: OSI Approved :: MIT License",
+
+  # Specify the Python versions you support here. In particular, ensure
+  # that you indicate you support Python 3. These classifiers are *not*
+  # checked by "pip install". See instead "python_requires" below.
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+# This field lists other packages that your project depends on to run.
+# Any package you put here will be installed by pip when your project is
+# installed, so they must be valid existing projects.
+#
+# For an analysis of this field vs pip's requirements files see:
+# https://packaging.python.org/discussions/install-requires-vs-requirements/
+dependencies = [ # Optional
+  "peppercorn"
+]
+
+# List additional groups of dependencies here (e.g. development
+# dependencies). Users will be able to install these using the "extras"
+# syntax, for example:
+#
+#   $ pip install sampleproject[dev]
+#
+# Similar to `dependencies` above, these must be valid existing
+# projects.
+[project.optional-dependencies] # Optional
+dev = ["check-manifest"]
+test = ["coverage"]
+
+# List URLs that are relevant to your project
+#
+# This field corresponds to the "Project-URL" and "Home-Page" metadata fields:
+# https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
+# https://packaging.python.org/specifications/core-metadata/#home-page-optional
+#
+# Examples listed include a pattern for specifying where the package tracks
+# issues, where the source is hosted, where to say thanks to the package
+# maintainers, and where to support the project financially. The key is
+# what's used to render the link text on PyPI.
+[project.urls]  # Optional
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Reports" = "https://github.com/pypa/sampleproject/issues"
+"Funding" = "https://donate.pypi.org"
+"Say Thanks!" = "http://saythanks.io/to/example"
+"Source" = "https://github.com/pypa/sampleproject/"
+
+# The following would provide a command line executable called `sample`
+# which executes the function `main` from this package when invoked.
+[project.scripts]  # Optional
+sample = "sample:main"
+
+# This is configuration specific to the `setuptools` build backend.
+# If you are using a different build backend, you will need to change this.
+[tool.setuptools]
+# If there are data files included in your packages that need to be
+# installed, specify them here.
+package-data = {"sample" = ["*.dat"]}
+
 [build-system]
 # These are the assumed default build requirements from pip:
 # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
