@@ -130,7 +130,8 @@ test = ["coverage"]
 # what's used to render the link text on PyPI.
 [project.urls]  # Optional
 "Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Reports" = "https://github.com/pypa/sampleproject/issues"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Changelog" = "https://github.com/pypa/sampleproject/blob/main/CHANGELOG.md"
 "Funding" = "https://donate.pypi.org"
 "Say Thanks!" = "http://saythanks.io/to/example"
 "Source" = "https://github.com/pypa/sampleproject/"
