@@ -1,8 +1,8 @@
-name: Create PR from stage to main
+name: Create PR from devel to stage
 on:
   push:
     branches:
-      - stage
+      - devel
 jobs:
   create-release-pr:
     runs-on: ubuntu-latest
@@ -19,8 +19,8 @@ jobs:
     - name: Create a release pull request
       env:
         GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GIT_PR_RELEASE_BRANCH_PRODUCTION: main
-        GIT_PR_RELEASE_BRANCH_STAGING: stage
+        GIT_PR_RELEASE_BRANCH_PRODUCTION: stage
+        GIT_PR_RELEASE_BRANCH_STAGING: devel
       run: |
         apt-get update && apt-get upgrade
         gem install -N git-pr-release
