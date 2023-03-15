@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    
+    tools{
+        maven 'local_maven'
+    }
+        stages{
+            stage('git clone url'){
+                steps{
+                    git branch: '*/main', url: 'https://github.com/pypa/sampleproject.git'
+                }
+            }
+            stage('build'){
+                steps{
+                    bat 'mvn clean package'
+                }
+            }
+            stage('deploy'){
+                steps{
+                    echo 'deploy to tomcat server'
+                    
+                }
+            }
+        }
+}
+
+                
