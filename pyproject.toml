@@ -32,7 +32,7 @@ description = "A sample Python project"  # Optional
 #
 # This field corresponds to the "Description" metadata field:
 # https://packaging.python.org/specifications/core-metadata/#description-optional
-readme = {file = "README.md"}  # Optional
+readme = "README.md" # Optional
 
 # Specify which Python versions you support. In contrast to the
 # 'Programming Language' classifiers, 'pip install' will check this
