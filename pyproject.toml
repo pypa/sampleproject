@@ -52,14 +52,14 @@ description = "A sample Python project"
 # the body of text which users will see when they visit PyPI.
 #
 # Often, this is the same as your README, so you can just read it in from
-# that file directly (as we have already done above)
+# that file directly.
 #
 # This field corresponds to the "Description" metadata field:
 # https://packaging.python.org/specifications/core-metadata/#description-optional
 readme = "README.md"
 
 # Specify which Python versions you support. In contrast to the
-# 'Programming Language' classifiers above, 'pip install' will check this
+# 'Programming Language' classifiers in this file, 'pip install' will check this
 # and refuse to install the project if the version does not match. See
 # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
 requires-python = ">=3.7"
@@ -110,7 +110,7 @@ classifiers = [
 
   # Specify the Python versions you support here. In particular, ensure
   # that you indicate you support Python 3. These classifiers are *not*
-  # checked by "pip install". See instead "python_requires" below.
+  # checked by "pip install". See instead "requires-python" key in this file.
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
