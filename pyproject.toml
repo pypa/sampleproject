@@ -128,8 +128,9 @@ dependencies = [
 #
 #   $ pip install sampleproject[dev]
 #
-# Similar to `dependencies` above, these must be valid existing
-# projects.
+# Optional dependencies the project provides. These are commonly 
+# referred to as "extras". For a more extensive definition see:
+# https://packaging.python.org/en/latest/specifications/dependency-specifiers/#extras
 [project.optional-dependencies]
 dev = ["check-manifest"]
 test = ["coverage"]
