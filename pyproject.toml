@@ -54,12 +54,12 @@ readme = "README.md"
 # 'Programming Language' classifiers in this file, 'pip install' will check this
 # and refuse to install the project if the version does not match. See
 # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-requires-python = ">=3.8"  # Optional
+requires-python = ">=3.8"
 
 # This is either text indicating the license for the distribution, or a file
 # that contains the license.
 # https://packaging.python.org/en/latest/specifications/core-metadata/#license
-license = {file = "LICENSE.txt"}  # Optional
+license = {file = "LICENSE.txt"}
 
 # This field adds keywords for your project which will appear on the
 # project page. What does your project relate to?
