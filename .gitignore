@@ -7,7 +7,8 @@ dist/
 __pycache__/
 *.so
 *~
+venv/
 
-# due to using tox and pytest
-.tox
+# due to using nox and pytest
+.nox
 .cache
