@@ -1,10 +1,15 @@
-name: Run Hello World
+name: Run Hello World with Dynamic Name
 
 on: 
   push:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      personName:
+        description: 'Person Name'
+        required: true  # Making it required to ensure a name is always provided
+        default: 'John'
 
 jobs:
   run-script:
@@ -19,5 +24,7 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Run Hello World script
+    - name: Run Hello World script with dynamic name
+      env:
+        PERSON_NAME: ${{ github.event.inputs.personName }}
       run: python hello.py
