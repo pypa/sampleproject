@@ -20,6 +20,8 @@ jobs:
       with:
         python-version: ${{ matrix.python }}
     - name: Install test dependencies
-      run: python -m pip install -U tox
+      run: python -m pip install --upgrade nox
     - name: Test
-      run: python -m tox -e py
+      run: python -m nox -s tests-${{ matrix.python }}
+    - name: Lint
+      run: python -m nox -s lint
