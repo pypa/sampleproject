@@ -8,7 +8,6 @@ __pycache__/
 *.so
 *~
 venv/
-
 # due to using nox and pytest
 .nox
 .cache

@@ -1,0 +1,30 @@
+name: Run Hello World with Dynamic Name
+
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      personName:
+        description: 'Person Name'
+        required: true  # Making it required to ensure a name is always provided
+        default: 'John'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Run Hello World script with dynamic name
+      env:
+        PERSON_NAME: ${{ github.event.inputs.personName }}
+      run: python hello.py
