@@ -19,7 +19,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21.0'  # Ensure the correct Go version is used
+
+      - name: Install tfsec
+        run: go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
+
+      - name: Add Go bin to PATH
+        run: echo "$HOME/go/bin" >> $GITHUB_PATH
+
       - name: Terraform security scan
-        uses: triat/terraform-security-scan@v3.0.0
+        run: tfsec .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
