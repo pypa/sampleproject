@@ -2,7 +2,7 @@ name: Terraform Security Scan and Code Scanning Alerts
 
 # Trigger the workflow on pull requests and pushes to the main branch
 on:
-  pull_request:
+  push:
     branches:
       - main
   push:
