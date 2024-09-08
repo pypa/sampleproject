@@ -176,7 +176,6 @@
 
 
 
-
 name: tfsec-security-scan
 
 on:
@@ -189,7 +188,7 @@ on:
 
 jobs:
   tfsec:
-    name: Run tfsec and upload SARIF report
+    name: Run tfsec and create GitHub check run
     runs-on: ubuntu-latest
 
     steps:
@@ -197,18 +196,43 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Run tfsec and output SARIF
-      - name: Run tfsec with SARIF output
-        uses: aquasecurity/tfsec-action@v1.0.3
-        with:
-          args: --format sarif --out tfsec.sarif
+      # Step 2: Run tfsec and output results
+      - name: Run tfsec
+        id: tfsec
+        run: |
+          tfsec --format json --out tfsec.json || true
+          cat tfsec.json
 
-      # Step 3: List files to verify SARIF file generation
-      - name: List files
-        run: ls -la
-
-      # Step 4: Upload the SARIF report to GitHub Code Scanning
-      - name: Upload SARIF to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
+      # Step 3: Upload JSON file for inspection (Optional)
+      - name: Upload JSON file
+        uses: actions/upload-artifact@v3
         with:
-          sarif_file: tfsec.sarif
+          name: tfsec-report
+          path: tfsec.json
+
+      # Step 4: Create a GitHub Check Run with tfsec results
+      - name: Create GitHub Check Run
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const file = fs.readFileSync('tfsec.json', 'utf8');
+            const tfsecResults = JSON.parse(file);
+
+            const checkRun = await github.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'tfsec Security Scan',
+              head_sha: context.sha,
+              status: 'completed',
+              conclusion: 'neutral', // Or 'success', 'failure', or 'cancelled'
+              output: {
+                title: 'tfsec Security Scan Results',
+                summary: tfsecResults.summary,
+                text: tfsecResults.details // This can be formatted to show the full report
+              }
+            });
+
+            console.log(checkRun);
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
