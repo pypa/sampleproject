@@ -1,0 +1,32 @@
+name: Terraform Security Scan and Code Scanning Alerts
+
+# Trigger the workflow on pull requests and pushes to the main branch
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  tfsec-scan:
+    name: Run tfsec and upload SARIF report
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Run the tfsec scan and generate SARIF report
+      - name: Run tfsec with SARIF output
+        uses: aquasecurity/tfsec-action@v1.0.4
+        with:
+          args: --format sarif --out tfsec.sarif .
+
+      # Step 3: Upload the SARIF report to GitHub to populate Code Scanning Alerts
+      - name: Upload SARIF to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: tfsec.sarif
