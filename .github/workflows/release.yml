@@ -27,7 +27,7 @@
 name: Pull Request Terraform Security Scan
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
