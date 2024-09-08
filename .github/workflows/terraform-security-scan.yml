@@ -137,6 +137,46 @@
 
 
 
+# name: tfsec-security-scan
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   tfsec:
+#     name: Run tfsec and upload SARIF report
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       # Step 1: Checkout the repository code
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       # Step 2: Run tfsec and output SARIF
+#       - name: Run tfsec with SARIF output
+#         uses: aquasecurity/tfsec-action@v1.0.3
+#         with:
+#           args: --format sarif --out tfsec.sarif .
+
+#       # Step 3: List files to verify SARIF file generation
+#       - name: List files
+#         run: ls -la
+
+#       # Step 4: Upload the SARIF report to GitHub Code Scanning
+#       - name: Upload SARIF to GitHub Code Scanning
+#         uses: github/codeql-action/upload-sarif@v2
+#         with:
+#           sarif_file: tfsec.sarif
+
+
+
+
+
 name: tfsec-security-scan
 
 on:
@@ -166,9 +206,11 @@ jobs:
       # Step 3: List files to verify SARIF file generation
       - name: List files
         run: ls -la
+        if: success()
 
       # Step 4: Upload the SARIF report to GitHub Code Scanning
       - name: Upload SARIF to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: tfsec.sarif
+        if: success()
