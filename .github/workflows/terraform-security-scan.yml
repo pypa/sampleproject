@@ -199,9 +199,10 @@ jobs:
 
       # Step 2: Run tfsec and output SARIF
       - name: Run tfsec with SARIF output
-        uses: aquasecurity/tfsec-action@v1.0.3
-        with:
-          args: --format sarif --out tfsec.sarif .
+        run: tfsec --format sarif --out tfsec.sarif
+        # uses: aquasecurity/tfsec-action@v1.0.3
+        # with:
+        #   args: --format sarif --out tfsec.sarif .
 
       # Step 3: List files to verify SARIF file generation
       - name: List files
