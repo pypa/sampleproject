@@ -179,46 +179,33 @@
 #           sarif_file: 'results.sarif'
 
 
-name: tfsec-security-scan
+name: Lint 1
 
 on:
   push:
     paths:
-      - "**/*.tf"
-  pull_request:
-    paths:
-      - "**/*.tf"
+      - "dir1/**"
 
 jobs:
   tfsec:
-    name: Run tfsec and upload SARIF report
+    name: tfsec
     runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
       security-events: write
-
     steps:
-      # Step 1: Checkout the repository code
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # Step 2: Run tfsec and output SARIF
-      - name: Run tfsec with SARIF output
+      - name: tfsec
         uses: aquasecurity/tfsec-sarif-action@v0.1.4
         with:
-          working_directory: .
+          working_directory: dir1
           sarif_file: tfsec.sarif
 
-      # Step 3: List files to verify SARIF file generation
-      - name: List files
-        run: ls -la
-        if: always()
-
-      # Step 4: Upload the SARIF report to GitHub Code Scanning
-      - name: Upload SARIF file to GitHub Code Scanning
+      - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: tfsec.sarif
-          category: tfsec/root
-          checkout_path: ${{ github.workspace }}
+          category: tfsec/dir1
+          checkout_path: ${{ github.workspace}}/dir1
