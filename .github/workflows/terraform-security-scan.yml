@@ -179,7 +179,6 @@
 #           sarif_file: 'results.sarif'
 
 
-
 name: tfsec-security-scan
 
 on:
@@ -192,12 +191,13 @@ on:
 
 jobs:
   tfsec:
-    name: tfsec
+    name: Run tfsec and upload SARIF report
     runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
       security-events: write
+
     steps:
       # Step 1: Checkout the repository code
       - name: Checkout code
@@ -210,7 +210,12 @@ jobs:
           working_directory: .
           sarif_file: tfsec.sarif
 
-      # Step 3: Upload the SARIF report to GitHub Code Scanning
+      # Step 3: List files to verify SARIF file generation
+      - name: List files
+        run: ls -la
+        if: always()
+
+      # Step 4: Upload the SARIF report to GitHub Code Scanning
       - name: Upload SARIF file to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
