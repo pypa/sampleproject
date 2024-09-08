@@ -167,11 +167,16 @@ jobs:
       - name: List files
         run: ls -la
 
-      # Step 4: Upload the SARIF report to GitHub Code Scanning
-      - name: Upload SARIF to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
+      # # Step 4: Upload the SARIF report to GitHub Code Scanning
+      # - name: Upload SARIF to GitHub Code Scanning
+      #   uses: github/codeql-action/upload-sarif@v2
+      #   with:
+      #     sarif_file: tfsec.sarif
+
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@27ea8f8fe5977c00f5b37e076ab846c5bd783b96
         with:
-          sarif_file: tfsec.sarif
+          sarif_file: 'results.sarif'
 
 
 
