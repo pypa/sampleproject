@@ -1,14 +1,39 @@
-name: Code Push, Commit, and Terraform Security Scan
+# name: Code Push, Commit, and Terraform Security Scan
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   code-checkout:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#   tfsec:
+#     name: tfsec
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - name: Terraform security scan
+#         uses: triat/terraform-security-scan@v3.0.0
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+name: Pull Request Terraform Security Scan
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
   code-checkout:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,9 +44,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Install tfsec
+        run: |
+          go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
+          export PATH=$PATH:/go/bin
+
       - name: Terraform security scan
-        uses: triat/terraform-security-scan@v3.0.0
+        run: tfsec .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  
