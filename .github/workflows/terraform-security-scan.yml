@@ -41,6 +41,52 @@
 #           github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
+# name: tfsec-security-scan
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   tfsec:
+#     name: Run tfsec and upload SARIF report
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       # Step 1: Check out the repository code
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       # Step 2: Run tfsec with SARIF output
+#       - name: Run tfsec with SARIF output
+#         uses: aquasecurity/tfsec-action@v1.0.9 # Update to the latest stable version
+#         with:
+#           args: --format sarif --out tfsec.sarif .
+
+#       # Step 3: Upload the SARIF report to GitHub to populate Code Scanning Alerts
+#       - name: Upload SARIF to GitHub Code Scanning
+#         uses: github/codeql-action/upload-sarif@v2
+#         with:
+#           sarif_file: tfsec.sarif
+
+#   tfsec-pr-commenter:
+#     name: tfsec PR Commenter
+#     runs-on: ubuntu-latest
+#     steps:
+#       # Step 1: Check out the repository code
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       # Step 2: Run tfsec and add comments to the PR
+#       - name: Run tfsec PR Commenter
+#         uses: aquasecurity/tfsec-pr-commenter-action@v1
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+
 name: tfsec-security-scan
 
 on:
@@ -57,17 +103,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code
+      # Step 1: Checkout the repository code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Run tfsec with SARIF output
+      # Step 2: Run tfsec and output SARIF file
       - name: Run tfsec with SARIF output
-        uses: aquasecurity/tfsec-action@v1.0.9 # Update to the latest stable version
+        uses: aquasecurity/tfsec-action@v1.0.3
         with:
           args: --format sarif --out tfsec.sarif .
 
-      # Step 3: Upload the SARIF report to GitHub to populate Code Scanning Alerts
+      # Step 3: Upload the SARIF report to GitHub for Code Scanning Alerts
       - name: Upload SARIF to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
@@ -76,13 +122,14 @@ jobs:
   tfsec-pr-commenter:
     name: tfsec PR Commenter
     runs-on: ubuntu-latest
+
     steps:
-      # Step 1: Check out the repository code
+      # Step 1: Checkout the repository code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Run tfsec and add comments to the PR
+      # Step 2: Run tfsec PR Commenter
       - name: Run tfsec PR Commenter
-        uses: aquasecurity/tfsec-pr-commenter-action@v1
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.0.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
