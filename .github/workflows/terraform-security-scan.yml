@@ -182,13 +182,20 @@
 name: Lint 1
 
 on:
-  push:
-    paths:
-      - "dir1/**"
+  # push:
+  #   paths:
+  #     - "dir1/**"
 
+  # pull_request:
+  #   paths:
+  #     - "dir1/**"
+
+  push:
+    branches:
+      - main
   pull_request:
-    paths:
-      - "dir1/**"
+    branches:
+      - main
 
 jobs:
   tfsec:
