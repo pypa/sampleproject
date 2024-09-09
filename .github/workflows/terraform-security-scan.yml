@@ -25,11 +25,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Run tfsec and generate a SARIF report
+      # Step 2: Run tfsec to scan the entire repository and generate a SARIF report
       - name: Run tfsec with SARIF output
         uses: aquasecurity/tfsec-sarif-action@v0.1.4
         with:
-          working_directory: .  # Set to the root or specific directory where your Terraform files are located
+          working_directory: .  # Scan the entire repository
           sarif_file: tfsec.sarif
 
       # Step 3: List files to verify SARIF file generation
@@ -42,5 +42,5 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: tfsec.sarif
-          category: tfsec/root  # You can adjust this category as needed
+          category: tfsec/scan  # Category for organizing SARIF results in Code Scanning
           checkout_path: ${{ github.workspace }}
