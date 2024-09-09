@@ -186,6 +186,10 @@ on:
     paths:
       - "dir1/**"
 
+  pull_request:
+    paths:
+      - "dir1/**"
+
 jobs:
   tfsec:
     name: tfsec
