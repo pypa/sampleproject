@@ -1,222 +1,46 @@
-# name: tfsec
-# on:
-#   push:
-#     branches:
-#       - main
-# jobs:
-#   tfsec:
-#     name: tfsec sarif report
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Clone repo
-#         uses: actions/checkout@main
-
-#       - name: tfsec
-#         uses: tfsec/tfsec-sarif-action@master
-#         with:
-#           sarif_file: tfsec.sarif         
-
-#       - name: Upload SARIF file
-#         uses: github/codeql-action/upload-sarif@v1
-#         with:
-#           # Path to SARIF file relative to the root of the repository
-#           sarif_file: tfsec.sarif
-
-# name: tfsec-pr-commenter
-# on:
-#   pull_request:
-# jobs:
-#   tfsec-pr-commenter:
-#     name: tfsec PR commenter
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Clone repo
-#         uses: actions/checkout@master
-
-#       - name: tfsec
-#         uses: tfsec/tfsec-pr-commenter-action@main
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-
-# name: tfsec-security-scan
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
-
-# jobs:
-#   tfsec:
-#     name: Run tfsec and upload SARIF report
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       # Step 1: Check out the repository code
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       # Step 2: Run tfsec with SARIF output
-#       - name: Run tfsec with SARIF output
-#         uses: aquasecurity/tfsec-action@v1.0.9 # Update to the latest stable version
-#         with:
-#           args: --format sarif --out tfsec.sarif .
-
-#       # Step 3: Upload the SARIF report to GitHub to populate Code Scanning Alerts
-#       - name: Upload SARIF to GitHub Code Scanning
-#         uses: github/codeql-action/upload-sarif@v2
-#         with:
-#           sarif_file: tfsec.sarif
-
-#   tfsec-pr-commenter:
-#     name: tfsec PR Commenter
-#     runs-on: ubuntu-latest
-#     steps:
-#       # Step 1: Check out the repository code
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       # Step 2: Run tfsec and add comments to the PR
-#       - name: Run tfsec PR Commenter
-#         uses: aquasecurity/tfsec-pr-commenter-action@v1
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-# name: tfsec-security-scan
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
-
-# jobs:
-#   tfsec:
-#     name: Run tfsec and upload SARIF report
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       # Step 1: Checkout the repository code
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       # Step 2: Run tfsec and output SARIF file
-#       - name: Run tfsec with SARIF output
-#         uses: aquasecurity/tfsec-action@v1.0.3
-#         with:
-#           args: --format sarif --out tfsec.sarif .
-
-#       # Step 3: Upload the SARIF report to GitHub for Code Scanning Alerts
-#       - name: Upload SARIF to GitHub Code Scanning
-#         uses: github/codeql-action/upload-sarif@v2
-#         with:
-#           sarif_file: tfsec.sarif
-
-#   tfsec-pr-commenter:
-#     name: tfsec PR Commenter
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       # Step 1: Checkout the repository code
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       # Step 2: Run tfsec PR Commenter
-#       - name: Run tfsec PR Commenter
-#         uses: aquasecurity/tfsec-pr-commenter-action@v1.0.3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-
-
-
-# name: tfsec-security-scan
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
-
-# jobs:
-#   tfsec:
-#     name: Run tfsec and upload SARIF report
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       # Step 1: Checkout the repository code
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       # Step 2: Run tfsec and output SARIF
-#       - name: Run tfsec with SARIF output
-#         uses: aquasecurity/tfsec-action@v1.0.3
-#         with:
-#           args: --format sarif --out tfsec.sarif .
-
-#       # Step 3: List files to verify SARIF file generation
-#       - name: List files
-#         run: ls -la
-
-#       # # Step 4: Upload the SARIF report to GitHub Code Scanning
-#       # - name: Upload SARIF to GitHub Code Scanning
-#       #   uses: github/codeql-action/upload-sarif@v2
-#       #   with:
-#       #     sarif_file: tfsec.sarif
-
-#       - name: Upload result to GitHub Code Scanning
-#         uses: github/codeql-action/upload-sarif@27ea8f8fe5977c00f5b37e076ab846c5bd783b96
-#         with:
-#           sarif_file: 'results.sarif'
-
-
-name: Lint 1
+name: tfsec-security-scan
 
 on:
-  # push:
-  #   paths:
-  #     - "dir1/**"
-
-  # pull_request:
-  #   paths:
-  #     - "dir1/**"
-
+  # Trigger the workflow on pushes to the main branch from any other branch
   push:
     branches:
       - main
+
+  # Trigger the workflow on pull requests targeting the main branch from any other branch
   pull_request:
     branches:
       - main
 
 jobs:
   tfsec:
-    name: tfsec
+    name: Run tfsec and upload SARIF report
     runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
-      security-events: write
-    steps:
-      - uses: actions/checkout@v4
+      security-events: write   # Required permission to upload SARIF files to Code Scanning
 
-      - name: tfsec
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Run tfsec and generate a SARIF report
+      - name: Run tfsec with SARIF output
         uses: aquasecurity/tfsec-sarif-action@v0.1.4
         with:
-          working_directory: dir1
+          working_directory: .  # Set to the root or specific directory where your Terraform files are located
           sarif_file: tfsec.sarif
 
-      - name: Upload SARIF file
+      # Step 3: List files to verify SARIF file generation
+      - name: List files in the current directory
+        run: ls -la
+        if: always()  # Ensures this step runs even if the previous step fails, useful for debugging
+
+      # Step 4: Upload the SARIF report to GitHub Code Scanning
+      - name: Upload SARIF file to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: tfsec.sarif
-          category: tfsec/dir1
-          checkout_path: ${{ github.workspace}}/dir1
+          category: tfsec/root  # You can adjust this category as needed
+          checkout_path: ${{ github.workspace }}
