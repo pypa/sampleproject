@@ -3,7 +3,12 @@
 
 name: Test
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - devel
+    paths:
+      - 'src/sample/**'
 
 jobs:
   test:
