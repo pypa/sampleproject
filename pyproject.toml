@@ -33,7 +33,7 @@ name = "sampleproject"  # REQUIRED, is the only field that cannot be marked as d
 #
 # For a discussion on single-sourcing the version, see
 # https://packaging.python.org/guides/single-sourcing-package-version/
-version = "3.0.0"  # REQUIRED, although can be dynamic
+version = "4.0.0"  # REQUIRED, although can be dynamic
 
 # This is a one-line description or tagline of what your project does. This
 # corresponds to the "Summary" metadata field:
@@ -128,7 +128,7 @@ dependencies = [
 #
 #   $ pip install sampleproject[dev]
 #
-# Optional dependencies the project provides. These are commonly 
+# Optional dependencies the project provides. These are commonly
 # referred to as "extras". For a more extensive definition see:
 # https://packaging.python.org/en/latest/specifications/dependency-specifiers/#extras
 [project.optional-dependencies]
