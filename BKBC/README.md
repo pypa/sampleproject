@@ -18,7 +18,7 @@ Your model will be evaluated on an **external held-out test cohort** using **log
 Training data is located at:
 
 ```
-/projectnb/medaihack/BKBC-hackathon/BKBC_train/train.csv
+/projectnb/medaihack/BKBC/BKBC_train/train.csv
 ```
 You should **NOT** change the training data path, and training on any other data will result in disqualification. 
 

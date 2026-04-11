@@ -26,6 +26,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
+import torch
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 

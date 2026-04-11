@@ -24,7 +24,7 @@ if [ $# -lt 1 ]; then
 fi
 
 # Activate virtual environment
-source ".venv/bin/activate" # Participants, please hardcode the path to YOUR TEAM's desired virtual env. This is the venv we will activate for evaluation.
+source "../.venv/bin/activate" # Participants, please hardcode the path to YOUR TEAM's desired virtual env. This is the venv we will activate for evaluation.
 
 INPUT="$1"
 OUTPUT="${2:-predictions.csv}"
