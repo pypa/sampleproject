@@ -152,6 +152,7 @@ test = ["coverage"]
 # which executes the function `main` from this package when invoked.
 [project.scripts]
 sample = "sample:main"
+sample-greet = "sample.cli:greet"
 
 
 # This is configuration specific to the `setuptools` build backend.
