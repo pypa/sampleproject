@@ -30,7 +30,7 @@ Typical contents for this file would include an overview of the project, basic
 usage examples, etc. Generally, including the project changelog in here is not a
 good idea, although a simple “What's New” section for the most recent version
 may be appropriate.
-
+This change was made by Riya for GitHub Pull Request demonstration.
 [packaging guide]: https://packaging.python.org
 [distribution tutorial]: https://packaging.python.org/tutorials/packaging-projects/
 [src]: https://github.com/pypa/sampleproject
